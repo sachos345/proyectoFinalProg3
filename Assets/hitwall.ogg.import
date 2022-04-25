@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hitwall.ogg-6d5468be8745088e9f78f26a167087bc.oggstr"
+
+[deps]
+
+source_file="res://Assets/hitwall.ogg"
+dest_files=[ "res://.import/hitwall.ogg-6d5468be8745088e9f78f26a167087bc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

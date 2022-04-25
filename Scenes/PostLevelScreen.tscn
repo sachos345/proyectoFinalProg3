@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/PostMenuScreen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/sfxuiok.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/bghotel2.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/sfxambient.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/zombie_icons.png" type="Texture" id=11]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bghotel2" type="Sprite" parent="."]
+modulate = Color( 0.196078, 0.184314, 0.184314, 1 )
+position = Vector2( 513.431, 305.179 )
+scale = Vector2( 1.18089, 1.0381 )
+texture = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimerTXT" type="Label" parent="CanvasLayer"]
+margin_left = 515.546
+margin_top = 87.415
+margin_right = 559.546
+margin_bottom = 101.415
+rect_scale = Vector2( 3, 3 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyCountTXT" type="Label" parent="CanvasLayer"]
+margin_left = 363.036
+margin_top = 133.13
+margin_right = 422.036
+margin_bottom = 147.13
+rect_scale = Vector2( 3, 3 )
+text = "99/99"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreTXT" type="Label" parent="CanvasLayer"]
+margin_left = 380.15
+margin_top = 174.05
+margin_right = 479.15
+margin_bottom = 205.05
+rect_scale = Vector2( 3, 3 )
+text = "FINAL SCORE: 1999"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RankTXT" type="Label" parent="CanvasLayer"]
+margin_left = 468.8
+margin_top = 132.95
+margin_right = 584.8
+margin_bottom = 146.95
+rect_scale = Vector2( 3, 3 )
+text = "99.99% (A RANK)"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="zombie_icons" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 347.419, 151.714 )
+scale = Vector2( 0.14609, 0.142413 )
+texture = ExtResource( 11 )
+vframes = 4
+hframes = 8
+frame = 2
+
+[node name="zombie_icons3" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 499.707, 108.415 )
+scale = Vector2( 0.163283, 0.166483 )
+texture = ExtResource( 11 )
+vframes = 4
+hframes = 8
+frame = 28
+
+[node name="zombie_icons4" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 376.681, 234.29 )
+scale = Vector2( 0.285744, 0.2741 )
+texture = ExtResource( 11 )
+vframes = 4
+hframes = 8
+frame = 27
+
+[node name="zombie_icons5" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 679.731, 235.24 )
+scale = Vector2( 0.285744, 0.2741 )
+texture = ExtResource( 11 )
+vframes = 4
+hframes = 8
+frame = 27
+
+[node name="BTContinue" type="Button" parent="CanvasLayer"]
+margin_left = 425.58
+margin_top = 284.945
+margin_right = 625.58
+margin_bottom = 337.945
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BTReplay" type="Button" parent="CanvasLayer"]
+margin_left = 424.606
+margin_top = 349.668
+margin_right = 624.606
+margin_bottom = 402.668
+text = "Replay"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BTMainMenu" type="Button" parent="CanvasLayer"]
+margin_left = 425.151
+margin_top = 415.988
+margin_right = 625.151
+margin_bottom = 468.988
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXUI" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -7.0
+
+[node name="SFXAmbient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -7.0
+autoplay = true
+[connection signal="pressed" from="CanvasLayer/BTContinue" to="." method="_on_BTContinue_pressed"]
+[connection signal="pressed" from="CanvasLayer/BTReplay" to="." method="_on_BTReplay_pressed"]
+[connection signal="pressed" from="CanvasLayer/BTMainMenu" to="." method="_on_BTMainMenu_pressed"]

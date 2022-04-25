@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfxfireak.wav-1fd045d3383257f7e54bbf8502c0e72d.sample"
+
+[deps]
+
+source_file="res://Assets/sfxfireak.wav"
+dest_files=[ "res://.import/sfxfireak.wav-1fd045d3383257f7e54bbf8502c0e72d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

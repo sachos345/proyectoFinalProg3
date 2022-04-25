@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/PlayerBody.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_0.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Flash.shader" type="Shader" id=4]
+[ext_resource path="res://Assets/sfxfiregun.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/luz.png" type="Texture" id=6]
+[ext_resource path="res://Assets/sfxfireak.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/sfxpickupammo.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/sfxhitplayer.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/sfxpickupgun.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Assets/sfxhitwall.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Assets/sfxenemydie.ogg" type="AudioStream" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashRange = 0.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 19.9705, 20.5788 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 19.943, 20.601 )
+
+[node name="PlayerBody" type="KinematicBody2D"]
+position = Vector2( -674.909, 956.374 )
+rotation = 0.723534
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+goBullet = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
+rotation = 0.0444234
+scale = Vector2( 0.388889, 0.388889 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -8, 8 )
+shape = SubResource( 2 )
+
+[node name="GunSpawn1" type="Position2D" parent="."]
+position = Vector2( 44.3045, 23.2707 )
+
+[node name="GunSpawn2" type="Position2D" parent="."]
+position = Vector2( 53.2243, 20.7725 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -8.78786, 7.16783 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.815308, 0.854378 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -10.4971, 10.4972 )
+current = true
+smoothing_enabled = true
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -10.8618, 6.48434 )
+texture = ExtResource( 6 )
+texture_scale = 0.47
+color = Color( 0.141176, 0.12549, 0.12549, 1 )
+energy = 1.82
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SFXFireGun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -7.0
+
+[node name="SFXFireAK" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -7.0
+
+[node name="SFXPickUpAmmo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -7.0
+
+[node name="SFXPickUpAK" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -7.0
+
+[node name="SFXGetHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -7.0
+
+[node name="SFXEnemyDie" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -7.0
+
+[node name="SFXBulletDie" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -7.0
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pickupgun.ogg-d89c88e709bc443490db2d9b055d011b.oggstr"
+
+[deps]
+
+source_file="res://Assets/pickupgun.ogg"
+dest_files=[ "res://.import/pickupgun.ogg-d89c88e709bc443490db2d9b055d011b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

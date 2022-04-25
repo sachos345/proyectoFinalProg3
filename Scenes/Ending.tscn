@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Ending.gd" type="Script" id=1]
+[ext_resource path="res://Assets/bghotel3.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/sfxambient.ogg" type="AudioStream" id=3]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bghotel3" type="Sprite" parent="."]
+modulate = Color( 0.258824, 0.227451, 0.227451, 1 )
+position = Vector2( 511.665, 299.736 )
+scale = Vector2( 1.44422, 1.38032 )
+texture = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndTXT" type="Label" parent="CanvasLayer"]
+margin_left = 3.86127
+margin_top = 186.455
+margin_right = 402.861
+margin_bottom = 275.456
+rect_scale = Vector2( 2.5, 2.5 )
+text = " Bien hecho, Charly, el Hotel Mirage ha sido limpiado de esta peste. Vuelve al cuartel para obtener tu siguiente mision!
+
+Press Escape  To Return To Main Menu"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXAmbient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true

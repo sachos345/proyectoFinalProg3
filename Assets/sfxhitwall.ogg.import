@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfxhitwall.ogg-ab5d3ead387bbe5905eb817dd35460be.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfxhitwall.ogg"
+dest_files=[ "res://.import/sfxhitwall.ogg-ab5d3ead387bbe5905eb817dd35460be.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

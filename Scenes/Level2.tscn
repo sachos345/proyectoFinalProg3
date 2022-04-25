@@ -1,0 +1,425 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Prefabs/PlayerBody.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://walls.tres" type="TileSet" id=5]
+[ext_resource path="res://Assets/bg.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Timer.gd" type="Script" id=8]
+[ext_resource path="res://Prefabs/PickUp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/zombie_icons.png" type="Texture" id=11]
+[ext_resource path="res://Prefabs/EndPoint.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/sfxmusic.wav" type="AudioStream" id=13]
+
+[node name="MainGame" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="TimerTXT" type="Label" parent="CanvasLayer"]
+margin_left = 46.2458
+margin_top = 35.165
+margin_right = 90.2458
+margin_bottom = 49.165
+rect_scale = Vector2( 3, 3 )
+text = "Timer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyCountTXT" type="Label" parent="CanvasLayer"]
+margin_left = 46.686
+margin_top = 72.3299
+margin_right = 105.686
+margin_bottom = 86.3299
+rect_scale = Vector2( 3, 3 )
+text = "Enemies"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BulletsCountTXT" type="Label" parent="CanvasLayer"]
+margin_left = 46.1649
+margin_top = 110.482
+margin_right = 99.1649
+margin_bottom = 125.482
+rect_scale = Vector2( 3, 3 )
+text = "Bullets"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HPCountTXT" type="Label" parent="CanvasLayer"]
+margin_left = 48.9239
+margin_top = 157.452
+margin_right = 101.924
+margin_bottom = 172.452
+rect_scale = Vector2( 3, 3 )
+text = "HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="zombie_icons" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 32.0186, 89.9644 )
+scale = Vector2( 0.14609, 0.142413 )
+texture = ExtResource( 11 )
+vframes = 4
+hframes = 8
+frame = 2
+
+[node name="zombie_icons3" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 30.4062, 56.1647 )
+scale = Vector2( 0.163283, 0.166483 )
+texture = ExtResource( 11 )
+vframes = 4
+hframes = 8
+frame = 28
+
+[node name="zombie_icons2" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 30.914, 127.932 )
+scale = Vector2( 0.268157, 0.219779 )
+texture = ExtResource( 11 )
+vframes = 4
+hframes = 8
+frame = 7
+
+[node name="zombie_icons4" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 26.9324, 172.583 )
+scale = Vector2( 0.192613, 0.186451 )
+texture = ExtResource( 11 )
+vframes = 4
+hframes = 8
+frame = 1
+
+[node name="AmmoBox2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -168.3, 620.328 )
+
+[node name="AmmoBox6" parent="." instance=ExtResource( 10 )]
+position = Vector2( -613.934, -44.0507 )
+ammountGive = 200
+
+[node name="AmmoBox8" parent="." instance=ExtResource( 10 )]
+position = Vector2( -614.023, -136.36 )
+type = "AK"
+ammountGive = 1
+
+[node name="AmmoBox9" parent="." instance=ExtResource( 10 )]
+position = Vector2( 835.944, 318.031 )
+ammountGive = 150
+
+[node name="AmmoBox7" parent="." instance=ExtResource( 10 )]
+position = Vector2( 479.161, 1133.11 )
+ammountGive = 150
+
+[node name="AmmoBox4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2004.29, -345.402 )
+ammountGive = 20
+
+[node name="PlayerBody" parent="." instance=ExtResource( 1 )]
+position = Vector2( -615.661, -483.324 )
+rotation = 1.57079
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -393224, 14, 0, -393223, 13, 1, -393222, 13, 1, -393220, 14, 0, -393219, 13, 0, -393217, 13, 0, -458752, 14, 0, -458750, 13, 1, -458748, 14, 0, -458747, 13, 2, -458744, 14, 0, -458743, 5, 0, -458742, 13, 0, -458741, 5, 0, -458740, 14, 0, -458738, 5, 0, -458737, 13, 1, -458736, 14, 0, -458735, 5, 0, -458734, 14, 0, -458733, 13, 2, -458732, 5, 0, -458730, 18, 0, -327688, 16, 0, -327687, 6, 0, -327685, 16, 0, -327684, 8, 0, -327683, 4, 0, -393216, 4, 0, -393213, 4, 0, -393210, 4, 0, -393208, 5, 0, -393204, 9, 0, -393200, 9, 0, -393194, 17, 0, -262152, 16, 0, -262149, 16, 0, -262147, 6, 0, -327680, 6, 0, -327677, 6, 0, -327674, 6, 0, -327658, 17, 0, -196616, 16, 0, -196615, 10, 0, -196613, 16, 0, -196612, 8, 0, -196611, 4, 0, -262144, 4, 0, -262141, 4, 0, -262138, 4, 0, -262136, 5, 0, -262134, 14, 0, -262133, 14, 0, -262132, 13, 2, -262131, 13, 2, -262130, 5, 0, -262129, 14, 0, -262128, 13, 2, -262127, 5, 0, -262126, 13, 2, -262125, 5, 0, -262122, 17, 0, -131080, 16, 0, -131079, 6, 0, -131077, 16, 0, -131075, 6, 0, -196608, 6, 0, -196605, 6, 0, -196602, 6, 0, -196598, 16, 0, -196594, 8, 0, -196593, 8, 0, -196591, 8, 0, -196586, 17, 0, -65544, 16, 0, -65541, 16, 0, -65540, 8, 0, -65539, 4, 0, -131072, 4, 0, -131069, 4, 0, -131066, 4, 0, -131064, 5, 0, -131062, 16, 0, -131059, 6, 0, -131056, 6, 0, -131053, 6, 0, -131050, 17, 0, -8, 16, 0, -6, 10, 0, -5, 16, 0, -3, 6, 0, -65536, 6, 0, -65533, 6, 0, -65530, 6, 0, -65526, 16, 0, -65514, 17, 0, 65528, 16, 0, 65529, 6, 0, 65531, 16, 0, 65532, 8, 0, 65533, 4, 0, 0, 4, 0, 3, 4, 0, 6, 4, 0, 8, 5, 0, 10, 16, 0, 12, 14, 0, 13, 5, 0, 14, 14, 0, 15, 13, 1, 16, 5, 0, 17, 13, 1, 18, 14, 0, 19, 5, 0, 20, 13, 1, 21, 5, 0, 22, 17, 0, 131064, 16, 0, 131067, 16, 0, 65546, 16, 0, 65548, 8, 0, 65553, 9, 0, 65556, 9, 0, 65558, 17, 0, 196600, 16, 0, 196601, 10, 0, 196603, 16, 0, 196604, 9, 0, 196605, 8, 0, 196607, 9, 0, 131072, 8, 0, 131074, 9, 0, 131075, 8, 0, 131076, 9, 0, 131077, 8, 0, 131078, 9, 0, 131082, 16, 0, 131094, 17, 0, 262136, 16, 0, 262137, 6, 0, 262139, 14, 0, 262140, 5, 0, 262141, 13, 1, 262142, 5, 0, 262143, 14, 0, 196608, 13, 1, 196609, 5, 0, 196610, 13, 1, 196611, 14, 0, 196612, 5, 0, 196613, 5, 0, 196614, 5, 0, 196615, 5, 0, 196618, 16, 0, 196620, 14, 0, 196621, 13, 1, 196622, 5, 0, 196623, 13, 1, 196624, 14, 0, 196625, 13, 1, 196626, 5, 0, 196627, 13, 1, 196628, 5, 0, 196630, 17, 0, 327672, 16, 0, 327675, 16, 0, 327677, 10, 0, 327679, 4, 0, 262147, 10, 0, 262154, 16, 0, 262157, 9, 0, 262161, 9, 0, 262165, 10, 0, 262166, 17, 0, 393208, 16, 0, 393210, 10, 0, 393211, 16, 0, 393213, 6, 0, 327681, 6, 0, 327690, 16, 0, 327700, 10, 0, 327701, 10, 0, 327702, 17, 0, 458744, 16, 0, 458745, 6, 0, 458747, 16, 0, 458748, 4, 0, 458751, 4, 0, 393220, 14, 0, 393221, 13, 2, 393223, 5, 0, 393224, 14, 0, 393225, 13, 2, 393226, 16, 0, 393227, 5, 0, 393228, 14, 0, 393229, 13, 2, 393230, 5, 0, 393231, 14, 0, 393232, 13, 2, 393233, 5, 0, 393234, 14, 0, 393235, 13, 2, 393236, 5, 0, 393237, 13, 2, 393238, 17, 0, 524280, 16, 0, 524283, 16, 0, 524285, 6, 0, 458753, 6, 0, 458759, 9, 0, 458763, 9, 0, 458766, 9, 0, 458774, 17, 0, 589816, 16, 0, 589817, 10, 0, 589819, 16, 0, 589820, 10, 0, 589823, 4, 0, 524305, 6, 0, 524307, 6, 0, 524310, 17, 0, 655352, 16, 0, 655353, 6, 0, 655355, 14, 0, 655357, 13, 0, 655359, 14, 0, 589824, 13, 0, 589826, 5, 0, 589827, 14, 0, 589828, 13, 0, 589829, 5, 0, 589831, 14, 0, 589832, 13, 0, 589833, 5, 0, 589835, 14, 0, 589836, 13, 0, 589837, 5, 0, 589846, 17, 0, 720888, 16, 0, 720891, 8, 0, 720892, 9, 0, 720893, 8, 0, 720894, 9, 0, 720895, 8, 0, 655360, 9, 0, 655366, 10, 0, 655367, 10, 0, 655370, 8, 0, 655371, 9, 0, 655372, 8, 0, 655373, 9, 0, 655374, 8, 0, 655375, 9, 0, 655381, 10, 0, 655382, 17, 0, 786424, 16, 0, 786429, 6, 0, 786431, 6, 0, 720897, 6, 0, 720904, 6, 0, 720906, 6, 0, 720908, 6, 0, 720913, 6, 0, 720915, 6, 0, 720917, 10, 0, 720918, 17, 0, 851960, 16, 0, 851961, 10, 0, 851962, 10, 0, 851963, 10, 0, 786446, 10, 0, 786447, 10, 0, 786452, 10, 0, 786453, 10, 0, 786454, 17, 0, 917496, 14, 0, 917499, 14, 0, 917503, 14, 0, 851971, 14, 0, 851975, 14, 0, 851976, 14, 0, 851977, 14, 0, 851978, 14, 0, 851979, 14, 0, 851980, 14, 0, 851981, 14, 0, 851982, 14, 0, 851983, 14, 0, 851984, 14, 0, 851985, 14, 0, 851986, 14, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BG" type="Sprite" parent="."]
+modulate = Color( 0.419608, 0.113725, 0.113725, 1 )
+position = Vector2( 728.888, 382.865 )
+scale = Vector2( 11.4087, 7.55117 )
+z_index = -2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ENEMIES" type="Node2D" parent="."]
+
+[node name="Enemy" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -123.684, 1140.27 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy28" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 178.848, 1063.08 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy2" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -564.937, 412.33 )
+rotation = -1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy11" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -644.1, 600.173 )
+rotation = -1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy29" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -561.593, 838.174 )
+rotation = -1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy30" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -652.033, 942.895 )
+rotation = -1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy31" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -564.766, 1012.71 )
+rotation = -1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy32" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -647.273, 1103.15 )
+rotation = -1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy13" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -73.9251, -17.2363 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy14" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 500.025, 46.3142 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy15" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 223.546, 126.188 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy19" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 507.813, -253.022 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy20" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 230.295, -75.8726 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy21" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 213.074, -306.2 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy22" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -71.6727, -189.982 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy23" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -42.432, -401.342 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy24" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 230.463, -440.118 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy16" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 499.8, -84.8479 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy17" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 517.59, -445.546 )
+rotation = 1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy27" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1467.31, -114.973 )
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy18" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1260.12, 239.989 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy43" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1396.58, 167.002 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy44" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1515.58, 233.642 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy12" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -660.581, 473.455 )
+rotation = -1.57079
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy3" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( -580.72, 726.008 )
+rotation = 4.71238
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy4" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 14.0455, 527.217 )
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy7" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1612.51, -78.5502 )
+rotation = -0.261799
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy8" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1064.85, 343.678 )
+rotation = 4.71238
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy45" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1061.67, 219.917 )
+rotation = 4.71238
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy46" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1088.65, 464.265 )
+rotation = 4.71238
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy5" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 140.699, 1191.14 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy6" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 359.599, 1135.96 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy33" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 615.053, 1121.68 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy34" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 727.707, 1189.91 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy35" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 881.614, 1112.16 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy36" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1010.13, 1178.8 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy37" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1175.15, 1131.2 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy38" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1371.9, 1116.92 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy9" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1608.68, 1069.13 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy25" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 8.08746, 717.346 )
+rotation = 6.28318
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy26" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 145.872, 621.943 )
+rotation = 6.28318
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy39" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 447.34, 794.891 )
+rotation = 6.28318
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy40" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 572.687, 726.664 )
+rotation = 6.28318
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy41" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 828.141, 798.064 )
+rotation = 6.28318
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy42" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 963.009, 734.597 )
+rotation = 6.28318
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="Enemy10" parent="ENEMIES" instance=ExtResource( 4 )]
+position = Vector2( 1620.86, 1197.22 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+type = 2
+
+[node name="EndPoint" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1549.41, 391.017 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -15.0
+autoplay = true

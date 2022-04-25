@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/uiok.wav-2561f018b75ec8d4cb746f2dc49252cb.sample"
+
+[deps]
+
+source_file="res://Assets/uiok.wav"
+dest_files=[ "res://.import/uiok.wav-2561f018b75ec8d4cb746f2dc49252cb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
